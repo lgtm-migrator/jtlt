@@ -1,41 +1,67 @@
 {
-    "name": "jtlt",
-    "title": "JTLT",
-    "id": "jtlt@brett.zamir",
-    "version": "0.1.0",
-    "license": "MIT",
-    "author": "Brett Zamir",
-    "main": "src/index",
-    "contributors": [],
-    "homepage": "https://github.com/s3u/JSONPath/",
-    "engines": {
-      "node": ">=0.8"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/brettz9/jtlt.git"
-    },
-    "dependencies": {
-        "object-assign": "4.x",
-        "jsonpath-plus": "git+https://git@github.com/s3u/JSONPath#master",
-        "jhtml": "git+https://git@github.com/brettz9/jhtml#master",
-        "simple-get-json": "git+https://git@github.com/brettz9/getJSON#master"
-    },
-    "optionalDependencies": {
-        "jamilih": "0.9.0",
-        "jsdom": "9.8.3"
-    },
-    "devDependencies": {
-        "bower": "1.x.x",
-        "nodeunit": "0.x"
-    },
-    "scripts": {
-        "prepublish": "bower install get-json#master",
-        "test": "node ./node_modules/nodeunit/bin/nodeunit ./test"
-    },
-    "bugs": "https://github.com/brettz9/jtlt/issues",
-    "description": "Uses an approach similar to [XSLT](http://www.w3.org/Style/XSL/) for declarative, linear declaration of templates, but with JSON or JavaScript object data sources. As with XSLT, can be transformed into different formats (e.g., HTML strings, JSON, DOM objects, etc.).",
-    "keywords": [
-        "xsl", "xslt", "json", "javascript"
-    ]
+  "name": "jtlt",
+  "version": "0.1.0",
+  "main": "dist/index-umd.js",
+  "module": "dist/index-es.js",
+  "license": "MIT",
+  "author": "Brett Zamir",
+  "contributors": [],
+  "homepage": "https://github.com/brettz9/jtlt/",
+  "scripts": {
+    "rollup": "rollup -c",
+    "eslint": "eslint --ext=js,md .",
+    "test-only": "mocha --require esm ./test",
+    "test": "npm run eslint && npm run rollup && npm run test-only"
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "browserslist": [
+    "cover 100%"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brettz9/jtlt.git"
+  },
+  "dependencies": {
+    "jamilih": "0.45.0",
+    "jhtml": "git+https://git@github.com/brettz9/jhtml#master",
+    "jsdom": "15.1.1",
+    "jsonpath-plus": "0.20.1",
+    "simple-get-json": "4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@mysticatea/eslint-plugin": "^10.0.3",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-ash-nazg": "^7.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-compat": "^3.1.1",
+    "eslint-plugin-eslint-comments": "^3.1.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsdoc": "^8.0.1",
+    "eslint-plugin-markdown": "^1.0.0",
+    "eslint-plugin-no-use-extend-native": "^0.4.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-unicorn": "^9.1.0",
+    "esm": "^3.2.25",
+    "mocha": "^6.1.4",
+    "rollup": "^1.15.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^5.0.1",
+    "rollup-plugin-terser": "^5.0.0",
+    "typescript": "^3.5.1"
+  },
+  "bugs": "https://github.com/brettz9/jtlt/issues",
+  "description": "Uses an approach similar to [XSLT](http://www.w3.org/Style/XSL/) for declarative, linear declaration of templates, but with JSON or JavaScript object data sources. As with XSLT, can be transformed into different formats (e.g., HTML strings, JSON, DOM objects, etc.).",
+  "keywords": [
+    "xsl",
+    "xslt",
+    "json",
+    "javascript"
+  ]
 }
