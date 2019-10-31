@@ -1,25 +1,68 @@
 {
   "name": "simple-get-json",
-  "version": "1.1.0",
+  "version": "5.0.0",
+  "main": "dist/index-cjs.js",
+  "browser": "dist/index.js",
+  "module": "dist/index-polyglot-es.js",
+  "author": "Brett Zamir",
+  "contributors": [],
+  "license": "MIT",
+  "description": "getJSON function similar to that of jQuery's for Node or the browser",
+  "browserslist": [
+    "cover 100%"
+  ],
+  "scripts": {
+    "prepublishOnly": "yarn",
+    "eslint": "eslint --ext=js,md,html .",
+    "start": "open-cli http://127.0.0.1:8089/tests/index.html && static -p 8089",
+    "test": "npm run rollup && npm run test-build && node ./tests/test-node.js",
+    "test-build": "npm run eslint && rollup -c rollup.config.test.js",
+    "browser-test": "npm run rollup && npm start",
+    "rollup": "npm run eslint && rollup -c"
+  },
+  "engines": {
+    "node": ">=0.4.0"
+  },
+  "dependencies": {
+    "local-xmlhttprequest": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@mysticatea/eslint-plugin": "^12.0.0",
+    "eslint": "^6.5.1",
+    "eslint-config-ash-nazg": "^11.0.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-array-func": "^3.1.3",
+    "eslint-plugin-compat": "^3.3.0",
+    "eslint-plugin-eslint-comments": "^3.1.2",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsdoc": "^15.12.0",
+    "eslint-plugin-markdown": "^1.0.1",
+    "eslint-plugin-no-use-extend-native": "^0.4.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-sonarjs": "^0.4.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-unicorn": "^12.1.0",
+    "node-static": "0.7.11",
+    "open-cli": "^5.0.0",
+    "rollup": "1.25.1",
+    "rollup-plugin-async": "^1.2.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "typescript": "^3.6.4"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/brettz9/getJSON.git"
   },
-  "author": "Brett Zamir",
-  "description": "getJSON function similar to that of jQuery's for Node or the browser",
-  "keywords": [
-    "json"
-  ],
-  "dependencies": {
-    "local-xmlhttprequest": "1.x"
-  },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/brettz9/getJSON/issues"
   },
   "homepage": "https://github.com/brettz9/getJSON",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  "keywords": [
+    "json"
+  ]
 }
